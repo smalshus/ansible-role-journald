@@ -1,1 +1,7 @@
-# Managed by Ansible (0xOI/ansible-role-<role>)
+# Managed by Ansible (0xOI/ansible-role-journald)
+# see: Journald configuration logic -- http://man7.org/linux/man-pages/man5/journald.conf.5.html
+
+[Journal]
+{% for key, value in conf["config"].items() %}
+{{ key }}={{ value }}
+{% endfor %}
