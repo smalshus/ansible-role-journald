@@ -1,0 +1,7 @@
+---
+- name: add specified users to privileged systemd-journal group
+  user:
+    name: "{{ item }}"
+    groups: "{{ journal_group }}"
+    append: yes
+  loop: "{{ journal_group_adds }}"
