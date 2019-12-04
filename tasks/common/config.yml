@@ -1,0 +1,6 @@
+---
+- name: render journald configurations in place
+  include: common/journal-conf.yml
+  loop: "{{ journal_configs }}"
+  loop_control:
+    loop_var: conf
