@@ -39,11 +39,58 @@ Variables are available and organized according to the following software & mach
 
 #### Install
 
-...*description of installation related vars*...
+The following variable can be customized to control certain aspects involved with the journald installation process. It is assumed that the host has a working version of the systemd package. Available versions based on OS distribution can be found [here](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=systemd&submit=Search+...&system=&arch=) for reference.
+
+`journal_group_adds: <list-of-accounts>` (**default**: *None*)
+- indicates user accounts to automatically add to the *systemd-journal* group for privileged log monitoring capabilities
+
+*Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files.*
+
+#### Example
+
+ ```yaml
+  journal_group_adds:
+    - user-account-1
+    - user-account-2
+```
 
 #### Config
 
-...*description of configuration related vars*...
+Configuration of `journald` is declared in an [ini-style](https://en.wikipedia.org/wiki/INI_file) config file, stored as "journald.conf" by default. This *INI* config is composed of a single section, `Journal`, which may be composed of various options for declaring the desired behavior of the logging service.
+
+These configurations can be expressed within the role's `journald_config` hash variable as lists of dicts containing key-value pairs representing the name, load path and a combination of the aforemented section options. See [here](http://man7.org/linux/man-pages/man5/journald.conf.5.html) for a complete list of available options.
+
+`[journald_configs: <list-entry>:] name: <string>` (**default**: *journald.conf*)
+- name of the journald configuration file
+
+`[journald_configs: <list-entry>:] path: <string>` (**default**: */etc/systemd/*)
+- load path of the journald configuration file
+
+When packages or local administrators need to customize the base or default configuration, they can install configuration snippets in one of the following override directories.
+
+| Configuration Load Path | Description |
+| --- | --- |
+| /etc/systemd/journald.conf | default/base configuration, as defined by the local system administrator |
+| /etc/systemd/journald.conf.d/*.conf | local administrator override directory (filename is an arbitrary value) |
+| /run/systemd/journald.conf.d/*.conf | runtime override directory (filename is an arbitrary value) |
+| /usr/lib/systemd/journald.conf.d/*.conf | vendor package override directory |
+ 
+*The main configuration file is read before any of the configuration directories, and has the lowest precedence. Entries in a file in any configuration directory override entries in the single configuration file. Files in the \*.conf.d/ configuration subdirectories are sorted and loaded by their filename in lexicographic order, regardless of which of the subdirectories they reside in.*
+
+Any configuration setting/value key-pair supported by `journald` should be expressible within each `journal_configs` list entry and properly rendered within the specified *INI* config.
+
+#### Example
+
+ ```yaml
+  journald_configs:
+    - name: debug-overrides.conf
+      path: /run/systemd/journald.conf.d
+      config:
+        MaxLevelStore: debug
+        Storage: volatile
+        RateLimitIntervalSec: 0
+        RateLimitBurst: 0
+```
 
 Dependencies
 ------------
