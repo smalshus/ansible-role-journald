@@ -10,7 +10,6 @@ Ansible Role :signal_strength: :page_with_curl: Journald
   - [Role Variables](#role-variables)
       - [Install](#install)
       - [Config](#config)
-      - [Launch](#launch)
   - [Dependencies](#dependencies)
   - [Example Playbook](#example-playbook)
   - [License](#license)
@@ -46,10 +45,6 @@ Variables are available and organized according to the following software & mach
 #### Config
 
 ...*description of configuration related vars*...
-
-#### Launch
-
-...*description of service launch related vars*...
 
 Dependencies
 ------------
