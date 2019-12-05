@@ -39,7 +39,7 @@ Variables are available and organized according to the following software & mach
 
 #### Install
 
-The following variable can be customized to control certain aspects involved with the journald installation process. It is assumed that the host has a working version of the systemd package. Available versions based on OS distribution can be found [here](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=systemd&submit=Search+...&system=&arch=) for reference.
+The following variables can be customized to control certain aspects involved with the journald installation process. It is assumed that the host has a working version of the systemd package. Available versions based on OS distribution can be found [here](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=systemd&submit=Search+...&system=&arch=) for reference.
 
 `journal_group_adds: <list-of-accounts>` (**default**: *None*)
 - indicates user accounts to automatically add to the *systemd-journal* group for privileged log monitoring capabilities
@@ -76,6 +76,9 @@ When packages or local administrators need to customize the base or default conf
 | /usr/lib/systemd/journald.conf.d/*.conf | vendor package override directory |
  
 *The main configuration file is read before any of the configuration directories, and has the lowest precedence. Entries in a file in any configuration directory override entries in the single configuration file. Files in the \*.conf.d/ configuration subdirectories are sorted and loaded by their filename in lexicographic order, regardless of which of the subdirectories they reside in.*
+
+`[journald_config: <list-entry>:] config: <dict>` (**default**: {})
+- section definitions for journal configuration
 
 Any configuration setting/value key-pair supported by `journald` should be expressible within each `journal_configs` list entry and properly rendered within the specified *INI* config.
 
