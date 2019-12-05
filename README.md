@@ -29,7 +29,7 @@ Requirements
 
 Considered the default logging system for Linux distributions and viewed as the sucessor to `syslog` with respect to system logging services, `journald` is generally installed alongside `systemd` and available without manual or user installation on the supported list of Linux platforms.
 
-Reference the systemd [README](https://github.com/systemd/systemd/blob/master/README) and journald [documentation](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) for further details.
+Reference the *systemd* [README](https://github.com/systemd/systemd/blob/master/README) and journald [documentation](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) for further details.
 
 Role Variables
 --------------
@@ -44,7 +44,7 @@ The following variables can be customized to control certain aspects involved wi
 `journal_group_adds: <list-of-accounts>` (**default**: `[]`)
 - indicates user accounts to automatically add to the *systemd-journal* group for privileged log monitoring capabilities
 
-*Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files.*
+*Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files. Reference this [systemd-journald](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) service documentation for more details.*
 
 ##### Example
 
@@ -107,6 +107,48 @@ default example:
 - hosts: all
   roles:
   - role: 0x0I.journald
+```
+
+automatically determine storage solution based on existence of the `/var/log/journal` directory and update/decrease persistence sync interval:
+```
+- hosts: staging
+  roles:
+  - role: 0x0I.journald
+    vars:
+      journald_configs:
+        - config:
+            Storage: persistence
+            SyncIntervalSec: 10
+```
+
+create base custom configuration with debug override configuration in place:
+```
+- hosts: all
+  roles:
+  - role: 0x0I.journald
+    vars:
+      journald_configs:
+          # base configuration will be installed at /etc/systemd/journald.conf
+          - config:
+              Storage: auto
+              MaxLevelStore: warning
+          # override configuration will be installed at /run/systemd/journald.conf.d/debug-overrides.conf
+          - name: debug-overrides.conf
+            path: /run/systemd/journald.conf.d
+            config:
+              Storage: volatile
+              MaxLevelStore: debug
+              RateLimitIntervalSec: 0
+              RateLimitBurst: 0
+```
+
+add a set of users to the `systemd-journal` group for privileged journal access:
+```
+- hosts: prod
+  roles:
+  - role: 0x0I.journald
+    vars:
+      journal_group_adds: ['sysadmin-user', 'sre-user']
 ```
 
 License
