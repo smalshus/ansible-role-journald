@@ -5,3 +5,4 @@
   with_items:
     - "config"
     - "systemd-journal-group"
+    - "launch"
