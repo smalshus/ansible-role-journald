@@ -1,8 +1,8 @@
 Ansible Role :signal_strength: :page_with_curl: Journald
 =========
-[![Galaxy Role](*role-shield-link*)](--role-link--)
-[![Downloads](*downloads-shield-link*)](--role-link--)
-[![Build Status](*build-shield-link*)](--role-link--)
+[![Galaxy Role](https://img.shields.io/ansible/role/45121.svg)](https://galaxy.ansible.com/0x0I/vim)
+[![Downloads](https://img.shields.io/ansible/role/d/45121.svg)](https://galaxy.ansible.com/0x0I/vim)
+[![Build Status](https://travis-ci.org/0x0I/ansible-role-vim.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-vim)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
@@ -16,7 +16,7 @@ Ansible Role :signal_strength: :page_with_curl: Journald
   - [License](#license)
   - [Author Information](#author-information)
 
-Ansible role that installs and configures Journald: a system service which collects and stores logging data from various sources
+Ansible role that installs and configures Journald: a system service which collects and stores logging data.
 
 ##### Supported Platforms:
 ```
