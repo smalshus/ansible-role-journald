@@ -41,7 +41,7 @@ Variables are available and organized according to the following software & mach
 
 The following variables can be customized to control certain aspects involved with the journald installation process. It is assumed that the host has a working version of the systemd package. Available versions based on OS distribution can be found [here](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=systemd&submit=Search+...&system=&arch=) for reference.
 
-`journal_group_adds: <list-of-accounts>` (**default**: *None*)
+`journal_group_adds: <list-of-accounts>` (**default**: `[]`)
 - indicates user accounts to automatically add to the *systemd-journal* group for privileged log monitoring capabilities
 
 *Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files.*
@@ -56,7 +56,7 @@ The following variables can be customized to control certain aspects involved wi
 
 #### Config
 
-Configuration of `journald` is declared in an [ini-style](https://en.wikipedia.org/wiki/INI_file) config file, stored as "journald.conf" by default. This *INI* config is composed of a single section, `Journal`, which may be composed of various options for declaring the desired behavior of the logging service.
+Configuration of `journald` is declared in an [ini-style](https://en.wikipedia.org/wiki/INI_file) config file, stored as ***journald.conf*** by default. This *INI* config is composed of a single section, `[Journal]`, which may be composed of various options for declaring the desired behavior of the logging service.
 
 These configurations can be expressed within the role's `journald_config` hash variable as lists of dicts containing key-value pairs representing the name, load path and a combination of the aforemented section options. See [here](http://man7.org/linux/man-pages/man5/journald.conf.5.html) for a complete list of available options.
 
@@ -66,7 +66,7 @@ These configurations can be expressed within the role's `journald_config` hash v
 `[journald_configs: <list-entry>:] path: <string>` (**default**: */etc/systemd/*)
 - load path of the journald configuration file
 
-When packages or local administrators need to customize the base or default configuration, they can install configuration snippets in one of the following override directories.
+When packages or local administrators need to customize the base or default configuration, they can install configuration snippets in one of the following override directories:
 
 | Configuration Load Path | Description |
 | --- | --- |
