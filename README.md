@@ -46,7 +46,7 @@ The following variables can be customized to control certain aspects involved wi
 
 *Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files.*
 
-#### Example
+##### Example
 
  ```yaml
   journal_group_adds:
@@ -82,7 +82,7 @@ When packages or local administrators need to customize the base or default conf
 
 Any configuration setting/value key-pair supported by `journald` should be expressible within each `journal_configs` list entry and properly rendered within the specified *INI* config.
 
-#### Example
+##### Example
 
  ```yaml
   journald_configs:
