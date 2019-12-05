@@ -4,3 +4,4 @@
   include_tasks: "common/{{ item }}.yml"
   with_items:
     - "config"
+    - "systemd-journal-group"

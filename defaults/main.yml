@@ -2,3 +2,6 @@
 # defaults variable file
 default_config_path: "/etc/systemd"
 default_config_file: "journald.conf"
+
+journal_group: "systemd-journal"
+journal_group_adds: []

@@ -99,3 +99,10 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/config
+
+  - name: journal-group-adds
+    provisioner:
+      playbook: test/integration/group_adds/default_playbook.yml
+    verifier:
+      inspec_tests:
+        - path: test/integration/group_adds
