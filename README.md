@@ -36,7 +36,6 @@ Role Variables
 Variables are available and organized according to the following software & machine provisioning stages:
 * _install_
 * _config_
-* _launch_
 
 #### Install
 
