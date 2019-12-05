@@ -109,7 +109,7 @@ default example:
   - role: 0x0I.journald
 ```
 
-automatically determine storage solution based on existence of the `/var/log/journal` directory and update/decrease persistence sync interval:
+set persistent log storage and update/decrease persistence sync interval:
 ```
 - hosts: staging
   roles:
