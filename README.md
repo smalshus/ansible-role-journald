@@ -56,7 +56,7 @@ default example:
 ```
 - hosts: all
   roles:
-  - role: 0xOI.journald
+  - role: 0x0I.journald
 ```
 
 License
