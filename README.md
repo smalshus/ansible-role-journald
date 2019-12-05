@@ -28,7 +28,9 @@ Ansible role that installs and configures Journald: a system service which colle
 Requirements
 ------------
 
-...*description of provisioning requirements*...
+Considered the default logging system for Linux distributions and viewed as the sucessor to `syslog` with respect to system logging services, `journald` is generally installed alongside `systemd` and available without manual or user installation on the supported list of Linux platforms.
+
+Reference the systemd [README](https://github.com/systemd/systemd/blob/master/README) and journald [documentation](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) for further details.
 
 Role Variables
 --------------
