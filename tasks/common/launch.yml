@@ -1,0 +1,7 @@
+---
+- name: Enable and start Journald service
+  service:
+    name: "systemd-journald"
+    state: started
+    enabled: true
+  become: true
