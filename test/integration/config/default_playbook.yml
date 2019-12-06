@@ -4,7 +4,7 @@
   roles:
     - ansible-role-journald
   vars:
-    journal_configs:
+    journald_configs:
       - config:
           Storage: auto
           Compress: true

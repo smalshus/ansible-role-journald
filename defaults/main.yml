@@ -5,3 +5,5 @@ default_config_file: "journald.conf"
 
 journal_group: "systemd-journal"
 journal_group_adds: []
+
+journald_configs: []

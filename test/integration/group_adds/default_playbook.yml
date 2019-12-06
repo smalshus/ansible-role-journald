@@ -5,4 +5,4 @@
     - ansible-role-journald
   vars:
     journal_group_adds: ['kitchen']
-    journal_configs: []
+    journald_configs: []

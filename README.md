@@ -74,13 +74,13 @@ When packages or local administrators need to customize the base or default conf
 | /etc/systemd/journald.conf.d/*.conf | local administrator override directory (filename is an arbitrary value) |
 | /run/systemd/journald.conf.d/*.conf | runtime override directory (filename is an arbitrary value) |
 | /usr/lib/systemd/journald.conf.d/*.conf | vendor package override directory |
- 
+
 *The main configuration file is read before any of the configuration directories, and has the lowest precedence. Entries in a file in any configuration directory override entries in the single configuration file. Files in the \*.conf.d/ configuration subdirectories are sorted and loaded by their filename in lexicographic order, regardless of which of the subdirectories they reside in.*
 
 `[journald_config: <list-entry>:] config: <dict>` (**default**: {})
 - section definitions for journal configuration
 
-Any configuration setting/value key-pair supported by `journald` should be expressible within each `journal_configs` list entry and properly rendered within the specified *INI* config.
+Any configuration setting/value key-pair supported by `journald` should be expressible within each `journald_configs` list entry and properly rendered within the specified *INI* config.
 
 ##### Example
 
