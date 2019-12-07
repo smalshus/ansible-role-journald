@@ -1,7 +1,7 @@
 Ansible Role :signal_strength: :page_with_curl: Journald
 =========
-[![Galaxy Role](https://img.shields.io/ansible/role/45121.svg)](https://galaxy.ansible.com/0x0I/vim)
-[![Downloads](https://img.shields.io/ansible/role/d/45121.svg)](https://galaxy.ansible.com/0x0I/vim)
+[![Galaxy Role](https://img.shields.io/ansible/role/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
+[![Downloads](https://img.shields.io/ansible/role/d/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
 [![Build Status](https://travis-ci.org/0x0I/ansible-role-journald.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-journald)
 
 **Table of Contents**
