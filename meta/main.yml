@@ -3,7 +3,7 @@
 galaxy_info:
   author: Ahmad Wilson
   role_name: journald
-  description: journald, a system service that collects and stores logging data
+  description: Journald, a system service that collects and stores logging data
   company: "O1.IO"
   license: license (Apache, BSD, MIT)
   min_ansible_version: 2.6
