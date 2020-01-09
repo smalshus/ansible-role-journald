@@ -1,5 +1,6 @@
 ---
-- name: add specified users to privileged systemd-journal group
+- name: Add specified users to privileged systemd-journal group
+  become: true
   user:
     name: "{{ item }}"
     groups: "{{ journal_group }}"
