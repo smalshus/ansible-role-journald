@@ -4,26 +4,22 @@
     conf_name: "{{ conf.name|default(default_config_file) }}"
     conf_path: "{{ conf.path|default(default_config_path) }}"
 
-- name: Check if config({{ conf_name }}) exists.
-  stat:
-    path: "{{ conf_path }}/{{ conf_name }}"
-  register: conf_stat
-
 - name: Ensure existence of journald({{ conf_path }}) configuration directory
+  become: true
   file:
     path: "{{ conf_path }}"
     state: directory
     owner: root
     group: root
-  become: true
 
 - name: Copy config({{ conf_name }}) in place
+  become: true
   template:
     src: "journald.conf.j2"
     dest: "{{ conf_path }}/{{ conf_name }}"
     owner: "root"
     group: "root"
     mode: 0644
-    backup: "{{ conf_stat.stat.exists }}"
+    backup: true
   vars:
     config: "{{ conf }}"

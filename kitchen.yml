@@ -93,7 +93,7 @@ platforms:
         - systemctl enable ssh.service
 
 suites:
-  - name: journald-conf
+  - name: config
     provisioner:
       playbook: test/integration/config/default_playbook.yml
     verifier:
