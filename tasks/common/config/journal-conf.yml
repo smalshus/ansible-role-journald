@@ -1,8 +1,8 @@
 ---
 - name: Define config filename and path attributes
   set_fact:
-    conf_name: "{{ conf.name|default(default_config_file) }}"
-    conf_path: "{{ conf.path|default(default_config_path) }}"
+    conf_name: "{{ conf.name|default(_default_config_file) }}"
+    conf_path: "{{ conf.path|default(_default_config_path) }}"
 
 - name: Ensure existence of journald({{ conf_path }}) configuration directory
   become: true
