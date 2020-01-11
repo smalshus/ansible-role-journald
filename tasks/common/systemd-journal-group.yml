@@ -6,3 +6,5 @@
     groups: "{{ journal_group }}"
     append: yes
   loop: "{{ journal_group_adds }}"
+  tags:
+    - systemd-journal-group
