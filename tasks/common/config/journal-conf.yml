@@ -3,6 +3,9 @@
   set_fact:
     conf_name: "{{ conf.name|default(_default_config_file) }}"
     conf_path: "{{ conf.path|default(_default_config_path) }}"
+  tags:
+    - preflight
+    - config
 
 - name: Ensure existence of journald({{ conf_path }}) configuration directory
   become: true
@@ -11,8 +14,10 @@
     state: directory
     owner: root
     group: root
+  tags:
+    - config
 
-- name: Copy config({{ conf_name }}) in place
+- name: Render config({{ conf_name }})
   become: true
   template:
     src: "journald.conf.j2"
@@ -23,3 +28,5 @@
     backup: true
   vars:
     config: "{{ conf }}"
+  tags:
+    - config

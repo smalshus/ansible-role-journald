@@ -5,3 +5,5 @@
     name: "systemd-journald"
     state: started
     enabled: true
+  tags:
+    - launch
