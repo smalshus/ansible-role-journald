@@ -38,6 +38,7 @@ Role Variables
 Variables are available and organized according to the following software & machine provisioning stages:
 * _install_
 * _config_
+* _uninstall_
 
 #### Install
 
@@ -96,6 +97,15 @@ Any configuration setting/value key-pair supported by `journald` should be expre
         RateLimitIntervalSec: 0
         RateLimitBurst: 0
 ```
+
+#### Uninstall
+
+Remove managed journald.conf config, returning the target host to its configured state prior to application of this role (e.g. can be useful for recycling configuration settings during system upgrades).
+
+_The following variable(s) can be customized to manage this uninstall process:_
+
+`perform_uninstall: <true | false>` (**default**: `false`)
+- whether to uninstall managed configuration of a system's journald.conf configuration on a target host (**see**: `handlers/main.yml` for details)
 
 Dependencies
 ------------

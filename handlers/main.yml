@@ -1,2 +1,7 @@
 ---
-# default handlers file
+- name: Remove managed journald.conf
+  file:
+    path: "{{ item.path|default(_default_config_path) }}/{{ item.name|default(_default_config_file) }}"
+    state: absent
+  with_items: "{{ journald_configs }}"
+  listen: Uninstall config

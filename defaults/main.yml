@@ -6,3 +6,5 @@ journal_group: "systemd-journal"
 journal_group_adds: []
 
 journald_configs: []
+
+perform_uninstall: false
