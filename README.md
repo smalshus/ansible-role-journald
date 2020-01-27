@@ -5,6 +5,7 @@ Ansible Role :signal_strength: :page_with_curl: Journald
 [![Galaxy Role](https://img.shields.io/ansible/role/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
 [![Downloads](https://img.shields.io/ansible/role/d/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
 [![Build Status](https://travis-ci.org/0x0I/ansible-role-journald.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-journald)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
@@ -166,7 +167,7 @@ add a set of users to the `systemd-journal` group for privileged journal access:
 License
 -------
 
-Apache, BSD, MIT
+MIT
 
 Author Information
 ------------------
