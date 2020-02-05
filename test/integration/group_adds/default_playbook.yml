@@ -1,8 +1,8 @@
 ---
-- name: Default playbook for testing
+- name: Journald group-adds integration test playbook
   hosts: test-kitchen
   roles:
-    - ansible-role-journald
-  vars:
-    journal_group_adds: ['kitchen']
-    journald_configs: []
+    - role: ansible-role-journald
+      vars:
+        journal_group_adds: ['kitchen']
+        journald_configs: []

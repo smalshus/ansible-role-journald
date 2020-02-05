@@ -1,4 +1,4 @@
-title "journald journal.conf integrated tests"
+title "Journald unit configuration integration tests"
 
 describe service('systemd-journald') do
   it { should be_installed }
