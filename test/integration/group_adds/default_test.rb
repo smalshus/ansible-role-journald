@@ -1,4 +1,4 @@
-title "journald sytemd-journal group integrated tests"
+title "Journald group-adds integration tests"
 
 describe group('systemd-journal') do
   it { should exist }
