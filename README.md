@@ -14,6 +14,7 @@ Ansible Role :signal_strength: :page_with_curl: Journald
   - [Role Variables](#role-variables)
       - [Install](#install)
       - [Config](#config)
+      - [Uninstall](#uninstall)
   - [Dependencies](#dependencies)
   - [Example Playbook](#example-playbook)
   - [License](#license)
