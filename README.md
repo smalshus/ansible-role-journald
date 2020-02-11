@@ -3,9 +3,10 @@
 Ansible Role :signal_strength: :page_with_curl: Journald
 =========
 [![Galaxy Role](https://img.shields.io/ansible/role/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
-[![Downloads](https://img.shields.io/ansible/role/d/45121.svg)](https://galaxy.ansible.com/0x0I/journald)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/ansible-role-journald?color=yellow)
+[![Downloads](https://img.shields.io/ansible/role/d/45121.svg?color=lightgrey)](https://galaxy.ansible.com/0x0I/journald)
 [![Build Status](https://travis-ci.org/0x0I/ansible-role-journald.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-journald)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
@@ -48,7 +49,7 @@ The following variables can be customized to control certain aspects involved wi
 `journal_group_adds: <list-of-accounts>` (**default**: `[]`)
 - indicates user accounts to automatically add to the *systemd-journal* group for privileged log monitoring capabilities
 
-*Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files. Reference this [systemd-journald](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) service documentation for more details.*
+*Journal files are, by default, owned and readable by the *systemd-journal* system group but are not writable. Adding a user to this group thus enables her/him to read the journal files without privilege escalation. Reference this [systemd-journald](http://man7.org/linux/man-pages/man8/systemd-journald.8.html) service documentation for more details.*
 
 ##### Example
 
