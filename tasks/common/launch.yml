@@ -2,7 +2,7 @@
 - name: Enable and start Journald service
   become: true
   service:
-    name: "systemd-journald"
+    name: "{{ _service_name }}"
     state: started
     enabled: true
   tags:
