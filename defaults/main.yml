@@ -7,4 +7,6 @@ journal_group_adds: []
 
 journald_configs: []
 
+_service_name: systemd-journald
+
 perform_uninstall: false

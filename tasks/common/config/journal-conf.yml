@@ -28,5 +28,7 @@
     backup: true
   vars:
     config: "{{ conf }}"
+  notify:
+    - Restart service
   tags:
     - config
