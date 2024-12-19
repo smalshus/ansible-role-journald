@@ -7,11 +7,19 @@
   listen: Restart service
   ignore_errors: true
 
-- name: Remove managed journald.conf
+- name: Remove managed journald.conf files
   become: true
   when: journald_configs is defined and journald_configs|length > 0
-  file:
-    path: "{{ item.path|default(_default_config_path) }}/{{ item.name|default(_default_config_file) }}"
-    state: absent
+  find:
+    paths: "{{ item.path|default(_default_config_path) }}"
+    patterns: "{{ item.name|default(_default_config_file) }}*"
   with_items: "{{ journald_configs }}"
+  register: found_configs
+
+- name: Delete all matched journald.conf files
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ found_configs.results | map(attribute='files') | flatten }}"
   listen: Uninstall config
